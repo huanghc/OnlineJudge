@@ -1,0 +1,62 @@
+% !Mode:: "TeX:UTF-8"
+\documentclass{xcumcmart}
+\usepackage{metalogo,hyperref} % 这里加载的宏包仅仅是为了本示例文档，实际使用时可以根据需要删除。
+%\usepackage[hidelinks]{hyperref}
+
+\usepackage{color,xcolor,graphicx,graphics,fancyhdr,listings,subfigure,lastpage,setspace,algorithm2e,mathtools,amsmath,amsfonts,float}
+\begin{document}
+
+%\tableofcontents\newpage%增加目录，要不要都可以。不想要的话，就在本行前加“%”（英文的百分号）
+\section*{摘要}
+\input{summery.tex}
+\section{问题的重述}
+\input{chongshu.tex}
+\section{问题分析}
+\input{fenxi.tex}
+\section{假设与符号}
+\input{jiashe.tex}
+\section{模型的建立}
+\input{model_1.tex}
+\input{bessel.tex}
+\section{模型讨论与建议}
+\input{check.tex}
+\section{模型的优缺点}
+\input{sp.tex}
+\begin{thebibliography}{1}
+\bibitem{1} 姜桂艳, 丁同强. 交通工程学[J]. M], 北京: 国防工业出版社, 2007.
+\bibitem{2} 2012 C J J. 城市道路工程设计规范 [S][D]. , 2012.
+\bibitem{3} 刘以成, 任福田, 冯桂炎. 交通工程手册[J]. 1995.
+\bibitem{4} 李向朋. 城市交通拥堵对策—封闭型小区交通开放研究[D].长沙理工大学,2014.
+\bibitem{30}Pas E I, Principio S L. Braess' paradox: Some new insights[J]. Transportation Research Part B: Methodological, 1997, 31(3): 265-276.
+\bibitem{31}Bazzan A L C, Klügl F. Case studies on the Braess paradox: simulating route recommendation and learning in abstract and microscopic models[J]. Transportation Research Part C: Emerging Technologies, 2005, 13(4): 299-319.
+\bibitem{5} 沈颖, 朱翀, 徐英俊. 道路饱和度计算方法研究[J]. 交通标准化, 2007 (1): 125-129.
+\bibitem{a} Braess P D D D. Über ein Paradoxon aus der Verkehrsplanung[J]. Unternehmensforschung, 1968, 12(1): 258-268.
+\bibitem{5}郭继孚,刘莹,余柳. 对中国大城市交通拥堵问题的认识[J]. 城市交通,2011,02:8-14+6.
+\bibitem{7}缪朴. 城市生活的癌症——封闭式小区的问题及对策[J]. 时代建筑,2004,05:46-49.
+\bibitem{8}刘冰. 浅议我国城市支路网的规划与设计[J]. 规划师,2009,06:16-20.
+\bibitem{9}宋伟轩,朱喜钢. 中国封闭社区——社会分异的消极空间响应[J]. 规划师,2009,11:82-86.
+\bibitem{10}郭继孚,刘莹,余柳. 对中国大城市交通拥堵问题的认识[J]. 城市交通,2011,02:8-14+6.
+\bibitem{33}Coy M. Gated communities and urban fragmentation in Latin America: the Brazilian experience[J]. GeoJournal, 2006, 66(1-2): 121-132.
+\bibitem{18}陈涛,陈森发. 动态状态交通分配模型及其运用[J]. 公路交通科技,2004,01:89-93.
+\bibitem{19}郭凤香,熊坚,王朝英. 交通分配模型研究及其应用[J]. 交通与计算机,2004,04:10-13.
+\bibitem{20}秦旭彦. 基于仿真的动态交通分配模型研究及实现[D].清华大学,2008.
+\bibitem{21}王朝英. 昆明城市交通分配模型研究及应用[D].昆明理工大学,2004.
+\bibitem{22}方丽君. 基于蚁群算法的交通分配模型研究[D].河海大学,2006.
+\bibitem{23}李发宗,涂先库,訾琨. 基于TransCAD的城市交通分配模型研究[J]. 宁波工程学院学报,2007,04:10-13.
+\bibitem{24}马广英. OD矩阵反推策略及其在交通仿真系统中的应用[D].浙江大学,2006.
+\bibitem{25}郝光. 动态OD矩阵推算模型及算法研究[D].西南交通大学,2007.
+\bibitem{11}高杨斌. 信号交叉口延误的计算模型分析[J]. 交通科技与经济,2004,06:49-51+57.
+\bibitem{12}姚荣涵,刘美妮,徐洪峰. 信号控制交叉口车均延误模型适用性分析[J]. 吉林大学学报(工学版),2016,02:390-398.
+\bibitem{13}王素欣,王雷震,高利,崔小光,陈雪梅. BPR路阻函数的改进研究[J]. 武汉理工大学学报(交通科学与工程版),2009,03:446-449.
+\bibitem{14}刘宁,赵胜川,何南. 基于BPR函数的路阻函数研究[J]. 武汉理工大学学报(交通科学与工程版),2013,03:545-548.
+\bibitem{35}Hobeika A G, Kim C. Comparison of traffic assignments in evacuation modeling[J]. IEEE Transactions on Engineering Management, 1998, 45(2): 192-198.
+\bibitem{15}王树盛,黄卫,陆振波. 路阻函数关系式推导及其拟合分析研究[J]. 公路交通科技,2006,04:107-110.
+\bibitem{16}郑远,杜豫川,孙立军. 美国联邦公路局路阻函数探讨[J]. 交通与运输(学术版),2007,01:24-26.
+\bibitem{17}白翰,何祎豪,付建村. 基于BPR函数的济南城市道路研究[J]. 山东交通学院学报,2008,03:41-44.
+\bibitem{36}HE N, LIU N, ZHAO S. A study of road traffic impedance based on BPR function[J]. Journal of Nanjing Institute of Technology (Natural Science Edition), 2013, 1: 003.
+\end{thebibliography}
+\newpage
+\appendix
+\section{附录}
+\input{appendix.tex}
+\end{document}

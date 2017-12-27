@@ -1,0 +1,114 @@
+\section{}
+\subsection{Question}
+Given an array of non-negative integers, you are initially positioned at the first index of the array.
+
+Each element in the array represents your maximum jump length at that position.
+
+Determine if you are able to reach the last index.
+
+For example:
+
+A = [2,3,1,1,4], return true.
+
+A = [3,2,1,0,4], return false.
+
+Input:
+
+int A[]: the input array.
+
+int N: length of A.
+
+Output:
+
+return true or false.
+\subsection{Answer}
+
+At every position, record the farthest position it can reach in a jump. Check every position by index and once the record includes the last index, return true.
+
+\textbf{\color{red}Time complexity O(n)}
+\subsection{Code}
+\texttt{C++ :}
+\lstinputlisting[breaklines=TRUE,basicstyle=\footnotesize\ttfamily,language=c++,numbers=left, numberstyle=\tiny,keywordstyle=\color{blue},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20},stringstyle=\color{purple}]{1.cpp}
+
+\newpage
+\section{}
+\subsection{Question}
+Given an array of non-negative integers, you are initially positioned at the first index of the array.
+
+Each element in the array represents your maximum jump length at that position.
+
+Your goal is to reach the last index in the minimum number of jumps.
+
+For example:
+
+Given array A = [2,3,1,1,4]
+
+The minimum number of jumps to reach the last index is 2. (Jump 1 step from index 0 to 1, then 3 steps to the last index.)
+
+Note:
+
+You can assume that you can always reach the last index.
+
+Input:
+
+int A[]: the input array.
+
+int N: length of A.
+
+Output:
+
+return minimum number of jumps.
+
+
+\subsection{Answer}
+Use the greedy algorithm. Record three parameters.
+
+\textbf{num} is the number of jumps.
+
+\textbf{curReach} means the maximum index after \textbf{num} jumps.
+
+\textbf{curMax} means the maximum index one can reach from index 0 to i.
+
+When i is larger than \textbf{curReach}, we do not care the actual route of the jump, but we are sure that we need one more jump to cover the current index i.
+
+If the \textbf{curReach} reaches the index N-1, the \textbf{num} is already the minimum number of jumps.
+
+\textbf{\color{red}Time complexity O(n)}
+\subsection{Code}
+\texttt{C++ :}
+\lstinputlisting[breaklines=TRUE,basicstyle=\footnotesize\ttfamily,language=c++,numbers=left, numberstyle=\tiny,keywordstyle=\color{blue},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20},stringstyle=\color{purple}]{2.cpp}
+
+\newpage
+\section{}
+\subsection{Question}
+
+There are N children standing in a line. Each child is assigned a rating value.
+
+You are giving candies to these children subjected to the following requirements:
+
+a. Each child must have at least one candy.
+
+b. Children with a higher rating get more candies than their neighbors.(assume no equal rating neighbors)
+
+What is the minimum candies you must give?
+
+Input:
+
+int A[]: the input array of rating values.
+
+int N: length of A,(number of children).
+
+Output:
+
+return minimum number of candies you must give.
+\subsection{Answer}
+This problem can be done with the greedy method. \textbf{num[n]} is the number of candy for each child. If one child's rate is greater than his left neighbor’s rate, then the best choice is giving this child \textbf{num[ i ]=num [i -1]+1} candies. If not, we just give the child one candy temporarily.
+
+Then we need to satisfy the requirement that if the child's rate is greater than his right neighbor's rate, he should get more candies. We only need to reverse the array and use the greedy method again.  We also need to make sure that the num[i] should be greater than the initial number of candies in the first operation. So 
+\textbf{num[i] = max(num [i] , num [i+1]+1);}This operation will not influence the situation that children with a higher rating get more candies than their left neighbors.
+
+\textbf{\color{red}Time complexity O(n)}
+
+\subsection{Code}
+\texttt{C++ :}
+\lstinputlisting[breaklines=TRUE,basicstyle=\footnotesize\ttfamily,language=c++,numbers=left, numberstyle=\tiny,keywordstyle=\color{blue},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20},stringstyle=\color{purple}]{3.cpp}

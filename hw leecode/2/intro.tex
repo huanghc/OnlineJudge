@@ -1,0 +1,132 @@
+\section{}
+\subsection{Question}
+There are two sorted arrays nums1 and nums2 of size m and n respectively.
+
+Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
+
+Example 1:
+
+nums1 = [1, 3]
+
+nums2 = [2]
+
+The median is 2.0
+
+Example 2:
+
+nums1 = [1, 2]
+
+nums2 = [3, 4]
+
+The median is (2 + 3)/2 = 2.5
+
+Input:
+
+int nums1[]; int m;
+
+int nums2[]; int n;
+
+Output:
+
+double median.
+
+\subsection{Answer}
+Since the time complexity is O(log (m+n)),clearly we need to use the binary search.
+
+The problem is similar to finding the K-th element in two sorted array. Firstly, if (m+n) is odd, let k be (m+n)/2+1. Else, we need to calculate the average of k = (m+n)/2+1 and k = (m+n)/2.
+
+For $(a_0,a_1,\ldots,a_{m/2})$,$(a_{m/2+1},a_{m/2+2},\ldots,a_{m})$,$(b_0,b_1,\ldots,b_{n/2})$,$(b_{n/2},b_{n/2+1},\ldots,b_{n})$,
+
+Assume $a_{m/2} \ge b_{n/2}$,
+if $m/2+n/2+1 \ge k$, and , we can abandon all elements in section $(a_{m/2+1},a_{m/2+2},\ldots,a_{m})$ because these elements must be greater than $a_{m/2}$ and greater than the median. (If $a_{m/2} \leq b_{n/2}$, abandon $(b_{b/2+1},b_{n/2+2},\ldots,b_{n})$.)
+
+If $m/2+n/2+1 \leq k$, we can abandon all elements in section $(b_{0},b_{1},\ldots,b_{n/2})$. (If $a_{m/2} \leq b_{n/2}$, abandon $(a_{0},a_{1},\ldots,a_{m/2})$.)
+
+\textbf{\color{red}Time complexity O(log (m+n))}
+\newpage
+\subsection{Code}
+\texttt{C++ :}
+\lstinputlisting[breaklines=TRUE,basicstyle=\footnotesize\ttfamily,language=c++,numbers=left, numberstyle=\tiny,keywordstyle=\color{blue},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20},stringstyle=\color{purple}]{1.cpp}
+
+\newpage
+\section{}
+\subsection{Question}
+Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
+
+For example, given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4,-1,2,1] has the largest sum = 6.
+
+Input:
+
+int A[]: the input array.
+
+int N: length of A.
+
+Output:
+
+return the largest sum.
+
+\subsection{Answer}
+For an element with index i in the array, the possible sub array with the maximum sum is the the sum of the (i-1) element plus the i-th element. It depends on whether the sum is positive or negative.
+
+if $sum[i]\ge0,sum[i+1]=sum[i]+A[i+1]$
+else, $sum[i+1]=A[i+1]$
+
+Then the answer is the maximum of every sum.
+
+\textbf{\color{red}Time complexity O(n)}
+\subsection{Code}
+\texttt{C++ :}
+\lstinputlisting[breaklines=TRUE,basicstyle=\footnotesize\ttfamily,language=c++,numbers=left, numberstyle=\tiny,keywordstyle=\color{blue},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20},stringstyle=\color{purple}]{2.cpp}
+
+\newpage
+\section{}
+\subsection{Question}
+Given a non-empty array containing only positive integers, find if the array can be partitioned into two subsets such that the sum of elements in both subsets is equal.
+
+Note:
+
+Each of the array element will not exceed 100.
+
+The array size will not exceed 200.
+
+Example 1:
+
+Input: [1, 5, 11, 5]
+
+Output: true
+
+Explanation: The array can be partitioned as [1, 5, 5] and [11].
+
+Example 2:
+
+Input: [1, 2, 3, 5]
+
+Output: false
+
+Explanation: The array cannot be partitioned into equal sum subsets.
+
+Input:
+
+int A[]: the input array.
+
+int N: length of A.
+
+Output:
+
+return true or false.
+
+\subsection{Answer}
+
+First calculate the sum of the array. If the sum is odd, it must be wrong. If not, get the half of the sum. 
+
+Use a vector to record whether the number 0 to half can get  by the sum of a subset.
+If dp[j-A[i]] is true, by adding the element A[i], j can also be added up, so dp[j] is also true.
+And we want the boolean value of dp[half] at last. 
+
+
+\textbf{\color{red}Time complexity O($n\times sum of array$)}
+\newpage
+\subsection{Code}
+\texttt{C++ :}
+\lstinputlisting[breaklines=TRUE,basicstyle=\footnotesize\ttfamily,language=c++,numbers=left, numberstyle=\tiny,keywordstyle=\color{blue},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20},stringstyle=\color{purple}]{3.cpp}
+

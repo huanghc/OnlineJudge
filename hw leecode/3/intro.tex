@@ -1,0 +1,150 @@
+\section{}
+\subsection{Question}
+You are given coins of different denominations and a total amount of money amount.
+
+Write a function to compute the fewest number of coins that you need to make up that amount.
+
+If that amount of money cannot be made up by any combination of the coins, return -1.
+
+Example 1:
+
+coins = [1, 2, 5], amount = 11
+
+return 3 (11 = 5 + 5 + 1)
+
+Example 2:
+
+coins = [2], amount = 3
+
+return -1.
+
+Input:
+
+int coins[];
+
+int n: length of coins[];
+
+int amount;
+
+Output:
+
+int num;
+
+\subsection{Answer}
+This is a simple problem with dynamic programming. To calculate the number of coins of each amount, we can check the minimum number of coins of amount minus each coin and plus one.  
+\textbf{\color{red}Time complexity O(n*amount)}
+
+\subsection{Code}
+\texttt{C++ :}
+\lstinputlisting[breaklines=TRUE,basicstyle=\footnotesize\ttfamily,language=c++,numbers=left, numberstyle=\tiny,keywordstyle=\color{blue},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20},stringstyle=\color{purple}]{1.cpp}
+
+\newpage
+\section{}
+\subsection{Question}
+Given a string s, partition s such that every substring of the partition is a palindrome.
+
+Return the minimum cuts needed for a palindrome partitioning of s.
+
+For example, given s = "aab",
+
+Return 1 since the palindrome partitioning ["aa","b"] could be produced using 1 cut.
+
+Input:
+
+string s;
+
+Output:
+
+int cuts;
+
+\subsection{Answer}
+Use dynamic programming as well.
+The idea is to calculate min cut of substring s[i-1,j+1] based on substring s[i, j]. We scan from right end to left of the string to search for any palindrome substring inside it so that we can get a candidate partition cut. We scan every possible right end palindrome substring to get the minimum cut. Eventually, the result to return is the min cut for s[0,len-1].
+
+\textbf{\color{red}Time complexity O($n^2$)}
+\subsection{Code}
+\texttt{C++ :}
+\lstinputlisting[breaklines=TRUE,basicstyle=\footnotesize\ttfamily,language=c++,numbers=left, numberstyle=\tiny,keywordstyle=\color{blue},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20},stringstyle=\color{purple}]{2.cpp}
+
+
+\section{}
+\subsection{Question}
+Given two arrays of length m and n with digits 0-9 representing two numbers.
+
+Create the maximum number of length $ k \leq m + n $ from digits of the two.
+
+The relative order of the digits from the same array must be preserved.
+
+Return an array of the k digits.
+
+You should try to optimize your time and space complexity.
+
+Example 1:
+
+nums1 = [3, 4, 6, 5]
+
+nums2 = [9, 1, 2, 5, 8, 3]
+
+k = 5
+
+return [9, 8, 6, 5, 3]
+
+Example 2:
+
+nums1 = [6, 7]
+
+nums2 = [6, 0, 4]
+
+k = 5
+
+return [6, 7, 6, 0, 4]
+
+Example 3:
+
+nums1 = [3, 9]
+
+nums2 = [8, 9]
+
+k = 3
+
+return [9, 8, 9]
+
+Input:
+
+int nums1[], int m;
+
+int nums2[], int n;
+
+int k;
+
+Output:
+
+int nums[];
+
+
+\subsection{Answer}
+We can use the greedy method to solve this.
+
+Divide the whole k numbers into two parts.
+num1 can take charge of $i(0\leq i\leq k)$ numbers and num2 can the charge of the rest k-i numbers
+
+So now the question is converted to:
+ 
+1)Get maximum number of k digits from an array.
+
+When $nums[i] < nums[i + 1]$, we can remove nums[i] in order to get the maximum number, as long as the rest of the array can guarantee to provide enough integers to form an integer of k digits. 
+
+2)Since we have two maximum array, with one size of i and another size of k-i, the problem is how can we combine the two into one maximum integer.
+
+And we can do it similar to merge sort.
+
+The difference is that if two digit are equal, we should choose according to the digits after them. So we should write a compare function that compare two array till the end, not just the current two digits. Then just merge two array together.
+
+Analyze the complexities:
+
+\textbf{\color{red}Time complexity O($n*m*k$) Space complexity O($n+m+k$)}
+
+\subsection{Code}
+\texttt{C++ :}
+\lstinputlisting[breaklines=TRUE,basicstyle=\footnotesize\ttfamily,language=c++,numbers=left, numberstyle=\tiny,keywordstyle=\color{blue},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20},stringstyle=\color{purple}]{3.cpp}
+
